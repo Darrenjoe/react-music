@@ -4,10 +4,10 @@ import style from "../../assets/global-style";
 
 const loading = keyframes`
   0%, 100% {
-    transform: scale (0.0);
+    transform: scale(0.0);
   }
   50% {
-    transform: scale (1.0);
+    transform: scale(1.0);
   }
 `;
 // eslint-disable-next-line
