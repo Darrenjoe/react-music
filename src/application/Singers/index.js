@@ -16,6 +16,7 @@ import {
 import { connect } from "react-redux";
 import Loading from "../../baseUI/loading";
 import LazyLoad, { forceCheck } from "react-lazyload";
+import { renderRoutes } from "react-router-config";
 
 function Singers(props) {
   let [category, setCategory] = useState("");
@@ -41,13 +42,20 @@ function Singers(props) {
     // eslint-disable-next-line
   }, []);
 
+  const enterDetail = id => {
+    props.history.push(`/singers/${id}`);
+  };
+
   const renderSingerList = () => {
     const list = singerList ? singerList.toJS() : [];
     return (
       <List>
         {list.map((item, index) => {
           return (
-            <ListItem key={item.accountId + "" + index}>
+            <ListItem
+              key={item.accountId + "" + index}
+              onClick={() => enterDetail(item.id)}
+            >
               <div className="img_wrapper">
                 <LazyLoad
                   placeholder={
@@ -121,6 +129,7 @@ function Singers(props) {
         </Scroll>
         <Loading show={enterLoading}></Loading>
       </ListContainer>
+      {renderRoutes(props.route.routes)}
     </div>
   );
 }
