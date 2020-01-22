@@ -52,17 +52,6 @@ function ProgressBar(props) {
     percentChange(curPercent); // 把新的进度传给回调函数并执行
   };
 
-  // 滑动完成时
-  const progressTouchEnd = e => {
-    //...
-    _changePercent();
-  };
-  // 点击后
-  const progressClick = e => {
-    //...
-    _changePercent();
-  };
-
   const _offset = offsetWidth => {
     progress.current.style.witdh = `${offsetWidth}px`;
     progressBtn.current.style.transform = `translate3d(${offsetWidth}px, 0, 0)`;
@@ -89,11 +78,13 @@ function ProgressBar(props) {
     const endTouch = JSON.parse(JSON.stringify(touch));
     endTouch.initiated = false;
     setTouch(endTouch);
+    _changePercent();
   };
   const progressClick = e => {
     const rect = progressBar.current.getBoundingClientRect();
     const offsetWidth = e.pageX - rect.left;
     _offset(offsetWidth);
+    _changePercent();
   };
 
   return (

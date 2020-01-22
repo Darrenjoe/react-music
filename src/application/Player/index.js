@@ -13,8 +13,13 @@ import MiniPlayer from "./miniPlayer/index";
 import NormalPlayer from "./normalPlayer/index";
 
 function Player(props) {
-  const { fullScreen } = props;
-  const { toggleFullScreenDispatch } = props;
+  const { playing, fullScreen } = props;
+  const { togglePlayingDispatch, toggleFullScreenDispatch } = props;
+
+  const clickPlaying = (e, state) => {
+    e.stopPropagation();
+    togglePlayingDispatch(state);
+  };
 
   const currentSong = {
     al: {
@@ -29,12 +34,16 @@ function Player(props) {
       <MiniPlayer
         song={currentSong}
         fullScreen={fullScreen}
+        playing={playing}
         toggleFullScreen={toggleFullScreenDispatch}
+        clickPlaying={clickPlaying}
       />
       <NormalPlayer
         song={currentSong}
         fullScreen={fullScreen}
+        playing={playing}
         toggleFullScreen={toggleFullScreenDispatch}
+        clickPlaying={clickPlaying}
       />
     </div>
   );
