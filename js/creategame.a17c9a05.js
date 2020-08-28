@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["creategame"],{"181f":function(e,n,t){"use strict";t.r(n);var r=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},u=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("p",[e._v("创建比赛")])])}],c={data:function(){return{}},mounted:function(){},methods:{}},a=c,o=t("2877"),i=Object(o["a"])(a,r,u,!1,null,null,null);n["default"]=i.exports}}]);
+//# sourceMappingURL=creategame.a17c9a05.js.map
